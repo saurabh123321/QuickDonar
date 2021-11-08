@@ -1,0 +1,30 @@
+{%extends 'layout1.html' %}
+
+{% block body %}
+<div class ="content-section" style="width: auto; margin-left: 80px; margin-top: 40px">
+<form action="" method="POST">
+  <div class="form.group" style="color: black; text-align: left; margin-top:35px">
+    {% for search in search %}
+    <span style="font-size: 20px; color: black">Username:  <span>
+    <span style="font-size: 20px; color: #e74c3c">{{search.USERNAME}}</span>
+    <br><br>
+    <span style="font-size: 20px; color: black">E-mail:  </span>
+    <span style="font-size: 20px; color: #e74c3c">{{search.EMAIL}}</span>
+    {% if search.verify == 0 %}
+    <a href='/token' style="margin-left: 45px; font-weight: bold"><input type="button" class="btn btn-primary" value="Verify Email"></a><br>
+    {% else %}
+    <label> verified!</label>
+	<br>
+    {% endif %}
+    <br>
+    <a href='/username' style="margin-left: 25px; font-weight: bold"><input type="button" class="btn btn-primary" value="Change Username"></a>
+    <a href='/updatepassword' style="margin-left: 45px; font-weight: bold"><input type="button" class="btn btn-primary" value="Change Password"></a>
+
+    <a href='/delete' style="margin-left: 45px; font-weight: bold"><input type="button" class="btn btn-primary" value="Delete Account"></a><br>
+    {% endfor %}
+  </div>
+
+
+</form>
+</div>
+{% endblock %}

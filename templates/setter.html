@@ -1,0 +1,28 @@
+{%extends 'layout1.html' %}
+{% block body %}
+  <hr>
+  <a href='/send'><input type="button" class="btn btn-success" value="Send Mail to all"></a><br><br>
+  <table class="table table-border" style="color: white; font-size:18px; background-color: black">
+   <thead style="font-weight: bold">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Address</th>
+      <th>Blood Group</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for search in search %}
+      <tr style="color: #5dade2">
+        <td>{{search.NAME}}</td>
+        <td>{{search.EMAIL}}</td>
+        <td>{{search.PHONE_NUMBER}}</td>
+        <td>{{search.ADDRESS}}</td>
+        <td>{{search.BLOOD_GROUP}}
+      </tr>
+    {% endfor %}
+  </tbody>
+{% endblock %}

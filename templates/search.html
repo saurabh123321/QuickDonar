@@ -1,0 +1,20 @@
+{% extends 'layout1.html' %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<div class ="content-section" style="width: auto; margin-top: 40px; margin-left: 50px">
+
+  <h1 style="color: black">Search</h1>
+<br>
+  <form action="" method="POST">
+    <div class="form.group">
+      <h4 style="color: black">City</h4>
+      <input type="text" name="CITY" class="form-control" value ={{request.form.CITY}}>
+    </div>
+	<br>
+    <button type="submit" class="btn btn-primary" style="font-weight: bold">Search</button>
+  </form>
+</div>
+  {% endblock %}

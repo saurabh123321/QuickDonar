@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<div class ="split centered" style="width: 40%; margin-top: 350px; margin-left: 170px">
+	<div class="content-section">
+	<h1 style="color: black">Login</h1>
+	<br>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group" style="color: black; font-weight: bold; text-align: left">
+                <div class="form-group">
+                    {{ form.USERNAME.label(class="form-control-lable") }}
+                    {% if form.USERNAME.errors %}
+                        {{ form.USERNAME(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.USERNAME.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.USERNAME(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.PASSWORD.label(class="form-control-label") }}
+                    {% if form.PASSWORD.errors %}
+                        {{ form.PASSWORD(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.PASSWORD.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.PASSWORD(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-check">
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-label") }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.Submit(class="btn btn-success btn-lg btn-block") }}
+            </div>
+            <small class="text-muted ml-2">
+                <a href={{url_for('forgot')}}>Forgot Password?</a>
+            </small>
+        </form>
+    </div>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Need An Account? <a class="ml-2" href="{{ url_for('register') }}">Sign Up Now</a>
+        </small>
+    </div>
+</div>
+{% endblock content %}
